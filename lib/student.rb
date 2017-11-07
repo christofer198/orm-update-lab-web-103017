@@ -22,11 +22,8 @@ class Student
   end
 
   def save
-    if self.id == nil
-      id = 'NULL'
-    else
-      id = self.id
-    end
     DB[:conn].execute("insert into students (name, grade) values ('#{self.name}', '#{self.grade}')")
+    self.id = DB[:conn].execute("select id from students where name='#{self.name}')")
+    
   end
 end
