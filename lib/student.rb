@@ -25,7 +25,7 @@ class Student
   end
 
   def save
-    binding.pry
+    #binding.pry
     if self.id==nil
       self.update
     else
