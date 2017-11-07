@@ -21,14 +21,12 @@ class Student
   end
 
   def update
-
       DB[:conn].execute("update students set name='#{self.name}', grade='#{self.grade}', id=#{self.id}")
-
   end
 
   def save
     binding.pry
-    if self.id
+    if self.id==nil
       self.update
     else
       DB[:conn].execute("insert into students (name, grade) values ('#{self.name}', '#{self.grade}')")
