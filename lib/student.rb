@@ -13,6 +13,7 @@ class Student
     @id = id
   end
 
-
+  def self.create_table
+    DB[:conn].execute("create table students")
 
 end
