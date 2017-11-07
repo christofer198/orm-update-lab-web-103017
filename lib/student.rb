@@ -45,6 +45,7 @@ class Student
 
   def self.find_by_name(name)
     row = DB[:conn].execute("select * from students where name='#{name}'")
-    binding.pry
+    row.map do |x|
+      new_student = Student.new(x[1], x[2], x[0])
   end
 end
