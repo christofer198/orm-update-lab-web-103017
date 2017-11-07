@@ -23,7 +23,7 @@ class Student
 
   def save
     DB[:conn].execute("insert into students (name, grade) values ('#{self.name}', '#{self.grade}')")
-    self.id = DB[:conn].execute("select id from students where name='#{self.name}')")
-    
+    self.id = DB[:conn].execute("select id from students where name='#{self.name}')").flatten.join.to_i
+
   end
 end
