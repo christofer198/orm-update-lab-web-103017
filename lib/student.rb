@@ -36,6 +36,7 @@ class Student
   end
 
   def self.create(name, grade)
-    Student.new(name, grade)
+    DB[:conn].execute("insert into students (name, grade) values ('#{name}', '#{grade}')")
+    
   end
 end
