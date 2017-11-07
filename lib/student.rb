@@ -26,7 +26,7 @@ class Student
 
   def save
     #binding.pry
-    if self.id==nil
+    if self.id != nil
       self.update
     else
       DB[:conn].execute("insert into students (name, grade) values ('#{self.name}', '#{self.grade}')")
