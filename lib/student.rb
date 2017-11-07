@@ -16,7 +16,7 @@ class Student
   def self.create_table
     DB[:conn].execute("create table students(id integer primary key, name text, grade text)")
   end
-  
+
   def self.drop_table
-    DB[:conn].execute("drop table students
+    DB[:conn].execute("drop table students")
 end
