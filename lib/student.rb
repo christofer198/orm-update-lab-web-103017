@@ -20,4 +20,7 @@ class Student
   def self.drop_table
     DB[:conn].execute("drop table students")
   end
+
+  def save
+    DB[:conn].execute("insert into students(id, name, grade) values ('#{id}', '#{name}', '#{grade}')")
 end
