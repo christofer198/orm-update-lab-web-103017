@@ -20,16 +20,15 @@ class Student
     DB[:conn].execute("drop table students")
   end
 
+  def update
+      
+      DB[:conn].execute(update students set name='#{self.name}', grade='#{self.grade}', id='#{self.id}')
+  
+  end
+    
   def save
-    if self.id
-        
-      else
-        sql = <<-SQL
-          INSERT INTO students (name, grade) VALUES (?, ?)
-        SQL
-
-        DB[:conn].execute(sql, self.name, self.grade)
-        @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
-      end
+    DB[:conn].execute("insert into students (name, grade) values ('#{self.name}', '#{self.grade}')")
+    self.id = DB[:conn].execute("select id from students where name='#{self.name}'").flatten.join.to_i
+    binding.pry
   end
 end
