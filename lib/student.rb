@@ -15,5 +15,6 @@ class Student
 
   def self.create_table
     DB[:conn].execute("create table students")
+  end
 
 end
