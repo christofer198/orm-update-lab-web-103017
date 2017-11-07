@@ -47,6 +47,7 @@ class Student
     row = DB[:conn].execute("select * from students where name='#{name}'")
     row.map do |x|
       new_student = Student.new(x[1], x[2], x[0])
+      return new_student
     end
   end
 end
