@@ -27,6 +27,6 @@ class Student
     else
       id = self.id
     end
-    DB[:conn].execute("insert into students(id, name, grade) values (, '#{self.name}', '#{self.grade}')")
+    DB[:conn].execute("insert into students(id, name, grade) values (#{id}, '#{self.name}', '#{self.grade}')")
   end
 end
