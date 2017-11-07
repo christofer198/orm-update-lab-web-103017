@@ -21,11 +21,11 @@ class Student
   end
 
   def update
-      
-      DB[:conn].execute(update students set name='#{self.name}', grade='#{self.grade}', id='#{self.id}')
-  
+
+      DB[:conn].execute("update students set name='#{self.name}', grade='#{self.grade}', id=#{self.id}")
+
   end
-    
+
   def save
     DB[:conn].execute("insert into students (name, grade) values ('#{self.name}', '#{self.grade}')")
     self.id = DB[:conn].execute("select id from students where name='#{self.name}'").flatten.join.to_i
